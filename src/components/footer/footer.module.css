@@ -1,0 +1,29 @@
+footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+    border-top: 2px solid #1E3D59;
+    padding-top: 17px;
+}
+
+.footer_nav {
+    display: flex;
+    justify-content: space-around;
+    width: 627px;
+}
+
+.footer_text {
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    margin-top: 29px;
+    color: #1E3D59;
+}
+
+.copyright {
+    font-size: 14px;
+    font-family: 'Merriweather', serif;
+    margin-top: 12px;
+    color: #1E3D59;
+}

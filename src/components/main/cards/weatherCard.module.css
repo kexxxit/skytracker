@@ -1,0 +1,44 @@
+.location_data {
+    color: white;
+}
+
+.city_data {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.location_date {
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    font-size: 15px;
+    opacity: 70%;
+}
+
+.weather_data {
+    display: flex;
+    align-items: center;
+}
+
+.weather_data__temp {
+    font-size: 64px;
+    font-weight: bold;
+    margin-right: 11px;
+}
+
+.weather_data__info {
+    font-family: 'Merriweather', serif;
+    opacity: 70%;
+    margin-left: 34px;
+}
+
+.some_data {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px white solid;
+    padding-top: 30px;
+}
+
+.some_data div {
+    opacity: 70%;
+}
+

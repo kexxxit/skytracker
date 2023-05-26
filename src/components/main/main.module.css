@@ -1,0 +1,9 @@
+main {
+    color: white;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+}
