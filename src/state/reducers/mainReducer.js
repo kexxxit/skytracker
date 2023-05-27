@@ -77,18 +77,19 @@ let initialState = {
             },
             "dt_txt": "2023-05-26 12:00:00"
         }
-    ]
+    ],
+    timezone: 0
 }
 
-const mainReducer = (state=initialState, action) => {
+const mainReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_WEATHER_DATA:
             return {
                 ...state,
                 weatherData: action.data.list[0],
-                weatherDetail: action.data.list
+                weatherDetail: action.data.list,
+                timezone: action.data.city.timezone / 3600
             }
-            break
         default:
             return state
     }
@@ -101,7 +102,7 @@ export const getWeatherData = (city) => {
     return async (dispatch) => {
         let response = await weatherAPI.getWeatherData(city)
         console.log(response.data)
-        if (response.data.cod == 200) {
+        if (response.data.cod === "200") {
             dispatch(setWeatherData(convert(response.data)))
         }
     }

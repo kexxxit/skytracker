@@ -6,7 +6,12 @@ import {getWeatherData} from "../../state/reducers/mainReducer";
 const MainContainer = (props) => {
     useEffect(() => {
         props.getWeatherData('Красноярск')
+        setInterval(() => {
+            props.getWeatherData('Красноярск')
+            console.log('done')
+        }, 60000)
     }, [])
+
 
     return <Main {...props} />
 }
@@ -14,7 +19,8 @@ const MainContainer = (props) => {
 let mapStateToProps = (state) => {
     return {
         weatherData: state.mainPage.weatherData,
-        weatherDetail: state.mainPage.weatherDetail
+        weatherDetail: state.mainPage.weatherDetail,
+        timezone: state.mainPage.timezone
     }
 }
 
