@@ -12,6 +12,31 @@
 }
 
 .weather_detail__card_items {
-    display: flex;
+
     overflow-x: hidden;
 }
+
+.weather_detail__card_items_slider {
+    display: flex;
+    position: relative;
+    height: 100%;
+    right: 0;
+    transition: right 0.5s;
+}
+
+.weather_detail__card_icon_left {
+    width: 22px;
+    cursor: pointer;
+}
+
+.weather_detail__card_icon_right {
+    width: 22px;
+    transform: rotate(180deg);
+    cursor: pointer;
+}
+
+.weather_detail__card_icon_wrapper {
+    display: flex;
+    justify-content: center;
+}
+

@@ -8,7 +8,6 @@ const MainContainer = (props) => {
         props.getWeatherData('Красноярск')
         setInterval(() => {
             props.getWeatherData('Красноярск')
-            console.log('done')
         }, 60000)
     }, [])
 

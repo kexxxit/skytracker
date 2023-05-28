@@ -36,9 +36,31 @@
     justify-content: space-between;
     border-top: 2px white solid;
     padding-top: 30px;
+    align-items: center;
 }
 
-.some_data div {
+.some_data__item {
+    display: flex;
+    align-items: center;
     opacity: 70%;
+}
+
+.some_data__wind_icon {
+    width: 37px;
+    margin-right: 10px;
+}
+
+.some_data__humidity_icon {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.some_data__pressure_icon {
+    width: 28px;
+    margin-right: 10px;
+}
+
+.weather_data__icon {
+    width: 60px;
 }
 

@@ -1,4 +1,20 @@
 .weather_item {
     min-width: 83.33px;
     margin-right: 20px;
+    max-height: 156px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: white 2px solid;
+    font-weight: bold;
+}
+
+.weather_item__img {
+    width: 60px;
+}
+
+.weather_item_text {
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    opacity: 70%;
 }
