@@ -1,49 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat+Alternates:ital,wght@0,500;0,700;1,500;1,700&display=swap');
 
 body {
-  margin: 0;
-  font-family: 'Montserrat Alternates', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 16px;
+    margin: 0;
+    font-family: 'Montserrat Alternates', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
 .button {
-  background-color: #FCBF20;
-  height: 48px;
-  border-radius: 100px;
-  text-align: center;
-  display: flex;
-  align-items: center;
+    height: 42px;
+    border-radius: 100px;
+    border: #FCBF20 4px solid;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.1s;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #FCBF20;
 }
 
 .button a {
-  margin: 0 14px;
+    margin: 0 14px;
 }
 
 .card {
-  background-color: #1E3D59;
-  height: 295px;
-  padding: 30px;
+    background-color: #1E3D59;
+    height: 295px;
+    padding: 30px;
 }
 
 .weather_card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 a {
-  text-decoration: none;
-  color: #1E3D59;
-  transition: color 0.1s;
+    text-decoration: none;
+    color: #1E3D59;
+    transition: color 0.1s;
 }
 
 a:hover {
-  color: #FCBF20;
+    color: #FCBF20;
+}
+
+input {
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: 'Montserrat Alternates', sans-serif;
 }

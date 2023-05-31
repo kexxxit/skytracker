@@ -6,7 +6,7 @@ import WeatherDetail from "./weatherDetail/WeatherDetail";
 const Main = props => (
     <main>
         <div className={styles.cards}>
-            <WeatherCard weatherData={props.weatherData} timezone={props.timezone}/>
+            <WeatherCard city={props.city} weatherData={props.weatherData} timezone={props.timezone}/>
             <div>card</div>
         </div>
         <WeatherDetail weatherDetail={props.weatherDetail} timezone={props.timezone}/>

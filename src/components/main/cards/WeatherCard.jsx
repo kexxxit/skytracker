@@ -30,7 +30,7 @@ function WeatherCard(props) {
 
     return <div className={"card weather_card"}>
         <div className={styles.location_data}>
-            <div className={styles.city_data}>Погода в Красноярске</div>
+            <div className={styles.city_data}>Погода в {props.city}</div>
             <div className={styles.location_date}>Сейчас {dateStr}</div>
         </div>
         <div className={styles.weather_data}>

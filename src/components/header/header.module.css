@@ -36,3 +36,12 @@ nav {
 .city_choice span {
     margin-right: 13px;
 }
+
+.city_choice__a {
+    color: #1E3D59;
+    padding: 0 14px;
+}
+
+.city_choice__a:hover {
+    color: #1E3D59;
+}

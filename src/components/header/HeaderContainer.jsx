@@ -1,9 +1,14 @@
 import React from "react";
 import Header from "./Header";
+import {connect} from "react-redux";
 
 
-function HeaderContainer() {
-    return <Header/>
+const HeaderContainer = props => <Header city={props.city}/>;
+
+let mapStateToProps = (state) => {
+    return {
+        city: state.cityPage.city
+    }
 }
 
-export default HeaderContainer
+export default connect(mapStateToProps, {})(HeaderContainer)
