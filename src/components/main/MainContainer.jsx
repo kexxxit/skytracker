@@ -8,6 +8,7 @@ let interval
 
 const MainContainer = (props) => {
     useEffect(() => {
+        clearInterval(interval)
         interval = setInterval(() => {
             props.getWeatherData(props.city)
         }, MINUTE)
