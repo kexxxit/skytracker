@@ -1,23 +1,18 @@
 import React, {useEffect, useState} from "react";
 import styles from "./weatherCard.module.css"
-import {calcDateByOffset} from "../../../utils/calc-date/calcDateByOffset";
-import humidityIcon from "../../../assets/imgs/icons/humidity.svg"
-import pressureIcon from "../../../assets/imgs/icons/pressure.svg"
-import windIcon from "../../../assets/imgs/icons/wind.svg"
-import weatherIcon from "../../../assets/imgs/weather-icons/clear.svg"
+import {calcDateByOffset} from "../../../../utils/calc-date/calcDateByOffset";
+import humidityIcon from "../../../../assets/imgs/icons/humidity.svg"
+import pressureIcon from "../../../../assets/imgs/icons/pressure.svg"
+import windIcon from "../../../../assets/imgs/icons/wind.svg"
+import weatherIcon from "../../../../assets/imgs/weather-icons/clear.svg"
 
 function WeatherCard(props) {
     const [dateStr, setDateStr] = useState("")
 
     const setDate = () => {
         const date = calcDateByOffset(props.timezone)
-        if (date.getMinutes() > 9) {
-            setDateStr(`${date.getDate()}.${date.getMonth()}.${date.getFullYear()}, 
-            ${date.getHours()}:${date.getMinutes()}`)
-        } else {
-            setDateStr(`${date.getDate()}.${date.getMonth()}.${date.getFullYear()},
-            ${date.getHours()}:0${date.getMinutes()}`)
-        }
+        date.locale("ru")
+        setDateStr(date.format("LLLL"))
     }
 
     useEffect(() => {

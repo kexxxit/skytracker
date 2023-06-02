@@ -101,7 +101,7 @@ export const setWeatherData = (data) => ({type: SET_WEATHER_DATA, data})
 export const getWeatherData = (city) => {
     return async (dispatch) => {
         let response = await weatherAPI.getWeatherData(city)
-        console.log(response.data)
+        
         if (response.data.cod === "200") {
             dispatch(setWeatherData(convert(response.data)))
         }

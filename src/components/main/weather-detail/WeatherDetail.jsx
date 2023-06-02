@@ -33,18 +33,25 @@ const WeatherDetail = props => {
         }
     }, [offset])
 
-    const items = props.weatherDetail.map(elem => <WeatherDetailItem
+    const items = props.weatherDetail.map((elem, index) => <WeatherDetailItem
+        key={index}
+        isFirst={index === 0}
         temp={elem.main.temp}
         weather={elem.weather[0].description}
         time={elem.dt}
+        date={elem.dt_txt}
     />)
 
     return <div className={styles.weather_detail}>
+        <div className={styles.weather_detail__title}>
+            <span>Прогноз на 5 дней</span>
+        </div>
         <div className={styles.weather_detail__card}>
             <div className={styles.weather_detail__card_icon_wrapper}>
                 <img id={'left_arrow'} onClick={leftArrowClickHandler}
                      className={styles.weather_detail__card_icon_left}
-                     src={arrowIcon}/>
+                     src={arrowIcon}
+                     alt={'left_arrow'}/>
             </div>
             <div className={styles.weather_detail__card_items}>
                 <div id={'weather_detail__card_items_slider'}
@@ -53,7 +60,8 @@ const WeatherDetail = props => {
             <div className={styles.weather_detail__card_icon_wrapper}>
                 <img id={'right_arrow'} onClick={rightArrowClickHandler}
                      className={styles.weather_detail__card_icon_right}
-                     src={arrowIcon}/>
+                     src={arrowIcon}
+                     alt={'right_arrow'}/>
             </div>
         </div>
     </div>

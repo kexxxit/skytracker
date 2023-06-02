@@ -1,8 +1,7 @@
 import {calcDateByOffset} from "../calc-date/calcDateByOffset";
 
 export const convert = (weather) => {
-    const timezone = weather.city.timezone / 3600
-    let offset = timezone
+    let offset = weather.city.timezone / 3600
 
     weather.list.forEach(elem => {
         elem.main.temp = Math.round(elem.main.temp)
@@ -11,7 +10,8 @@ export const convert = (weather) => {
         elem.main.temp_min = Math.round(elem.main.temp_min)
         elem.main.pressure = Math.round(elem.main.pressure * 0.75)
         elem.wind.speed = Math.round(elem.wind.speed)
-        elem.dt = `${calcDateByOffset(offset).getHours()}:00`
+        elem.dt = `${calcDateByOffset(offset).hour()}:00`
+        elem.dt_txt = `${calcDateByOffset(offset).format("D MMMM")}`
         offset += 3
     })
     return weather

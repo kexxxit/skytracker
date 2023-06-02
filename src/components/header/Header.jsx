@@ -10,9 +10,6 @@ const Header = props => (
             <span>SkyTracker</span>
         </div>
         <nav>
-            <a href={"#"}>Прогноз</a>
-            <a href={"#"}>О нас</a>
-            <a href={"#"}>Войти</a>
         </nav>
         <div className={styles.city_choice}>
             <span>{props.city}</span>

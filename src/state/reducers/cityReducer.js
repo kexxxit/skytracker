@@ -83,7 +83,6 @@ const cityReducer = (state = initialState, action) => {
                 cityList: action.cityList
             }
         default:
-            console.log(state)
             return state
     }
 }
@@ -101,7 +100,6 @@ export const setCityList = (query) => {
     const citiesByQuery = searchCities(query, citiesList)
     return (dispatch) => {
         dispatch(setCityListAction(citiesByQuery))
-        console.log(citiesByQuery)
     }
 }
 
@@ -170,7 +168,6 @@ export const setInitialCities = () => {
     ]
     return (dispatch) => {
         dispatch(setCityListAction(initialCities))
-
     }
 }
 

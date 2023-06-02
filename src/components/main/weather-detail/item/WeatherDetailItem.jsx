@@ -5,8 +5,8 @@ import weatherIcon from "../../../../assets/imgs/weather-icons/clear.svg"
 const WeatherDetailItem = props => {
 
     return <div className={styles.weather_item}>
-        <div>{props.time}</div>
-        <div className={styles.weather_item_text}>2 апреля</div>
+        {props.isFirst ? <div>Сейчас</div> : <div>{props.time}</div>}
+        <div className={styles.weather_item_text}>{props.date}</div>
         <div>{props.temp}°</div>
         <img className={styles.weather_item__img} src={weatherIcon}/>
     </div>

@@ -11,7 +11,7 @@ const CitySelectionContainer = (props) => {
     };
 
     const cityList = props.cityList.map((elem) => <NavLink
-        to={'/'}
+        to='/'
         onClick={() => {
             handleCitySelection(elem.name)
         }}

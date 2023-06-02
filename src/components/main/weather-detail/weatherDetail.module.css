@@ -11,6 +11,18 @@
     margin-top: 20px;
 }
 
+.weather_detail__title {
+    background-color: #FCBF20;
+    width: 217px;
+    height: 38px;
+    border-radius: 20px 20px 0 0;;
+    color: #1E3D59;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .weather_detail__card_items {
 
     overflow-x: hidden;

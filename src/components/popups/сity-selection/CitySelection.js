@@ -9,10 +9,8 @@ export const CitySelection = (props) => {
     useEffect(() => {
         if (searchText !== '') {
             props.setCityList(searchText)
-            console.log(searchText)
         } else {
             props.setInitialCities()
-            console.log("пусто")
         }
     }, [searchText])
 
