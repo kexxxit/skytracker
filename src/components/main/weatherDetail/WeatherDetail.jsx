@@ -16,7 +16,6 @@ const WeatherDetail = props => {
 
     useEffect(() => {
         document.getElementById('weather_detail__card_items_slider').style.right = `${offset}px`
-        console.log(offset)
 
         const rightArrow = document.getElementById('right_arrow')
         const leftArrow = document.getElementById('left_arrow')
