@@ -1,5 +1,5 @@
 import '../assets/styles/App.css';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, HashRouter, Route, Routes} from "react-router-dom";
 import HeaderContainer from "../components/header/HeaderContainer";
 import MainContainer from "../components/main/MainContainer";
 import Footer from "../components/footer/Footer";
@@ -9,7 +9,7 @@ import CitySelectionContainer from "../components/popups/CitySelection/CitySelec
 
 function App() {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Provider store={store}>
                 <div className="app-wrapper">
                     <HeaderContainer/>
@@ -20,7 +20,7 @@ function App() {
                     <Route path={'/city'} element={<CitySelectionContainer/>}/>
                 </Routes>
             </Provider>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 

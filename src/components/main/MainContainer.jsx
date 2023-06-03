@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import Main from "./Main";
 import {connect} from "react-redux";
 import {getWeatherData} from "../../state/reducers/mainReducer";
+import Preloader from "../ui/Preloader";
 
 const MINUTE = 60000
 let interval
@@ -24,7 +25,8 @@ let mapStateToProps = (state) => {
         weatherData: state.mainPage.weatherData,
         weatherDetail: state.mainPage.weatherDetail,
         timezone: state.mainPage.timezone,
-        city: state.cityPage.city
+        city: state.cityPage.city,
+        isInitialized: state.mainPage.isInitialized
     }
 }
 
