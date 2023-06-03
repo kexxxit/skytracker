@@ -5,7 +5,7 @@ import MainContainer from "../components/main/MainContainer";
 import Footer from "../components/footer/Footer";
 import {Provider} from "react-redux";
 import store from "../state/store";
-import CitySelectionContainer from "../components/popups/сity-selection/CitySelectionContainer";
+import CitySelectionContainer from "../components/popups/CitySelection/CitySelectionContainer";
 
 function App() {
     return (

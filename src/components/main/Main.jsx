@@ -1,8 +1,8 @@
 import React from "react";
-import WeatherCard from "./cards/weather-card/WeatherCard";
-import styles from "./main.module.css"
-import WeatherDetail from "./weather-detail/WeatherDetail";
-import SomeCard from "./cards/some-card/SomeCard";
+import WeatherCard from "./cards/WeatherCard/WeatherCard";
+import styles from "./Main.module.css"
+import WeatherDetail from "./WeatherDetail/WeatherDetail";
+import SomeCard from "./cards/SomeCard/SomeCard";
 
 const Main = props => (
     <main>

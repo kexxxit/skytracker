@@ -1,4 +1,4 @@
-import styles from "./citySelection.module.css"
+import styles from "./CitySelection.module.css"
 import magnifier from "../../../assets/imgs/icons/loupe.svg"
 import {NavLink} from "react-router-dom";
 import {useEffect, useState} from "react";

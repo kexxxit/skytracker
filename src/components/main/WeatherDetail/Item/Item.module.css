@@ -13,6 +13,12 @@
     width: 60px;
 }
 
+.weather_item__img_wrapper {
+    height: 64px;
+    display: flex;
+    align-items: flex-end;
+}
+
 .weather_item_text {
     font-family: 'Merriweather', serif;
     font-weight: 400;

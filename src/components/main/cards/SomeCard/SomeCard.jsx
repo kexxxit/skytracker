@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./someCard.module.css"
+import styles from "./SomeCard.module.css"
 
 const SomeCard = () => <div className={"card weather_card"}>
     <div className={styles.development}>

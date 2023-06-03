@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
-import styles from "./weatherDetail.module.css"
-import WeatherDetailItem from "./item/WeatherDetailItem"
+import styles from "./WeatherDetail.module.css"
+import WeatherDetailItem from "./Item/WeatherDetailItem"
 import arrowIcon from "../../../assets/imgs/icons/arrow.svg"
 
 const WeatherDetail = props => {
@@ -38,6 +38,7 @@ const WeatherDetail = props => {
         isFirst={index === 0}
         temp={elem.main.temp}
         weather={elem.weather[0].description}
+        main={elem.weather[0].main}
         time={elem.dt}
         date={elem.dt_txt}
     />)

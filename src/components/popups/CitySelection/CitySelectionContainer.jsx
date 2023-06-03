@@ -1,7 +1,7 @@
 import {CitySelection} from "./CitySelection";
 import {connect} from "react-redux";
 import {setCity, setCityList, setInitialCities} from "../../../state/reducers/cityReducer";
-import styles from "./citySelection.module.css";
+import styles from "./CitySelection.module.css";
 import {NavLink} from "react-router-dom";
 
 const CitySelectionContainer = (props) => {

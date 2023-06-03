@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
-import styles from "./weatherCard.module.css"
+import styles from "./WeatherCard.module.css"
 import {calcDateByOffset} from "../../../../utils/calc-date/calcDateByOffset";
 import humidityIcon from "../../../../assets/imgs/icons/humidity.svg"
 import pressureIcon from "../../../../assets/imgs/icons/pressure.svg"
 import windIcon from "../../../../assets/imgs/icons/wind.svg"
 import weatherIcon from "../../../../assets/imgs/weather-icons/clear.svg"
+import {defineWeatherIcon} from "../../../../utils/define-weather-icon/defineWeatherIcon";
 
 function WeatherCard(props) {
     const [dateStr, setDateStr] = useState("")
@@ -30,7 +31,8 @@ function WeatherCard(props) {
         </div>
         <div className={styles.weather_data}>
             <div className={styles.weather_data__temp}>{props.weatherData.main.temp}°</div>
-            <img className={styles.weather_data__icon} src={weatherIcon} alt={'weather icon'}/>
+            <img className={styles.weather_data__icon} src={defineWeatherIcon(props.weatherData.weather[0].main)}
+                 alt={'weather icon'}/>
             <div className={styles.weather_data__info}>
                 <div>{props.weatherData.weather[0].description}</div>
                 <div>Ощущается как {props.weatherData.main.feels_like}°</div>
