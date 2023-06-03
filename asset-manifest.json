@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/skytracker/static/css/main.bb345aba.css",
+    "main.js": "/skytracker/static/js/main.7a309557.js",
+    "static/js/787.a4cea2a2.chunk.js": "/skytracker/static/js/787.a4cea2a2.chunk.js",
+    "static/media/logo.svg": "/skytracker/static/media/logo.eb095530e2e63c6acf356b5225191863.svg",
+    "static/media/drizzle.svg": "/skytracker/static/media/drizzle.e35c8be997c90a646aa3f976860f539c.svg",
+    "static/media/snow.svg": "/skytracker/static/media/snow.c16ce10150ed79bc3ba0054cfcd23247.svg",
+    "static/media/clear.svg": "/skytracker/static/media/clear.6e2c72a4087530cc7eb170aa875e73ac.svg",
+    "static/media/wind.svg": "/skytracker/static/media/wind.f7634d81d053cd1b46af317b235fa880.svg",
+    "static/media/clouds.svg": "/skytracker/static/media/clouds.29fea122f5bfaabb4423b29742a3a0ff.svg",
+    "static/media/humidity.svg": "/skytracker/static/media/humidity.cf8211a1a097e947468ab0aa68531965.svg",
+    "static/media/rain.svg": "/skytracker/static/media/rain.d9224ae8a907e6dc3cb606eacba5916e.svg",
+    "static/media/pressure.svg": "/skytracker/static/media/pressure.cae4a36cfc37791338ded71c2f9e185b.svg",
+    "index.html": "/skytracker/index.html",
+    "static/media/loupe.svg": "/skytracker/static/media/loupe.54fd46af41218e7753accc4cece5ff63.svg",
+    "static/media/arrow.svg": "/skytracker/static/media/arrow.152128a082b645e8541fee38f0ca1807.svg",
+    "main.bb345aba.css.map": "/skytracker/static/css/main.bb345aba.css.map",
+    "main.7a309557.js.map": "/skytracker/static/js/main.7a309557.js.map",
+    "787.a4cea2a2.chunk.js.map": "/skytracker/static/js/787.a4cea2a2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bb345aba.css",
+    "static/js/main.7a309557.js"
+  ]
+}
