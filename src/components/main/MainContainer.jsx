@@ -2,7 +2,6 @@ import React, {useEffect} from "react";
 import Main from "./Main";
 import {connect} from "react-redux";
 import {getWeatherData} from "../../state/reducers/mainReducer";
-import Preloader from "../ui/Preloader";
 
 const MINUTE = 60000
 let interval

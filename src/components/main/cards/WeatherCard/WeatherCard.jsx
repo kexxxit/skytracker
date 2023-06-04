@@ -7,6 +7,8 @@ import windIcon from "../../../../assets/imgs/icons/wind.svg"
 import {defineWeatherIcon} from "../../../../utils/define-weather-icon/defineWeatherIcon";
 import Preloader from "../../../ui/Preloader";
 
+const SECOND = 1000
+
 function WeatherCard(props) {
     const [dateStr, setDateStr] = useState("")
 
@@ -14,6 +16,7 @@ function WeatherCard(props) {
         const date = calcDateByOffset(props.timezone)
         date.locale("ru")
         setDateStr(date.format("LLLL"))
+
     }
 
     useEffect(() => {
@@ -21,7 +24,8 @@ function WeatherCard(props) {
     }, [props.timezone, setDate])
 
     useEffect(() => {
-        setInterval(setDate, 1000)
+        setInterval(setDate, SECOND)
+        console.log('ТАЙМЕР УСТАНОВЛЕН')
     }, [])
 
     return <div className={"card weather_card"}>

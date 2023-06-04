@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import styles from "./WeatherDetail.module.css"
 import WeatherDetailItem from "./Item/WeatherDetailItem"
 import arrowIcon from "../../../assets/imgs/icons/arrow.svg"
@@ -6,6 +6,9 @@ import Preloader from "../../ui/Preloader";
 
 const WeatherDetail = props => {
     const [offset, setOffset] = useState(0)
+    const rightArrowRef = useRef()
+    const leftArrowRef = useRef()
+    const sliderRef = useRef()
 
     const rightArrowClickHandler = () => {
         setOffset(offset + 1053.33)
@@ -17,24 +20,21 @@ const WeatherDetail = props => {
 
     useEffect(() => {
         if (props.isInitialized) {
-            document.getElementById('weather_detail__card_items_slider').style.right = `${offset}px`
-
-            const rightArrow = document.getElementById('right_arrow')
-            const leftArrow = document.getElementById('left_arrow')
+            sliderRef.current.style.right = `${offset}px`
 
             if (offset === 3159.99) {
-                rightArrow.style.display = 'none'
+                rightArrowRef.current.style.display = 'none'
             } else {
-                rightArrow.style.display = 'block'
+                rightArrowRef.current.style.display = 'block'
             }
 
             if (offset === 0) {
-                leftArrow.style.display = 'none'
+                leftArrowRef.current.style.display = 'none'
             } else {
-                leftArrow.style.display = 'block'
+                leftArrowRef.current.style.display = 'block'
             }
         }
-    }, [offset])
+    }, [props.isInitialized, offset])
 
     const items = props.weatherDetail.map((elem, index) => <WeatherDetailItem
         key={index}
@@ -53,20 +53,22 @@ const WeatherDetail = props => {
         <div className={styles.weather_detail__card}>
             {props.isInitialized ? <>
                 <div className={styles.weather_detail__card_icon_wrapper}>
-                    <img id={'left_arrow'} onClick={leftArrowClickHandler}
+                    <img onClick={leftArrowClickHandler}
                          className={styles.weather_detail__card_icon_left}
                          src={arrowIcon}
-                         alt={'left_arrow'}/>
+                         alt={'left_arrow'}
+                         ref={leftArrowRef}/>
                 </div>
                 <div className={styles.weather_detail__card_items}>
-                    <div id={'weather_detail__card_items_slider'}
-                         className={styles.weather_detail__card_items_slider}>{items}</div>
+                    <div className={styles.weather_detail__card_items_slider}
+                         ref={sliderRef}>{items}</div>
                 </div>
                 <div className={styles.weather_detail__card_icon_wrapper}>
-                    <img id={'right_arrow'} onClick={rightArrowClickHandler}
+                    <img onClick={rightArrowClickHandler}
                          className={styles.weather_detail__card_icon_right}
                          src={arrowIcon}
-                         alt={'right_arrow'}/>
+                         alt={'right_arrow'}
+                         ref={rightArrowRef}/>
                 </div>
 
             </> : <>
