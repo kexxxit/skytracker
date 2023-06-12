@@ -17,13 +17,14 @@ export const CitySelection = (props) => {
     return (
         <div className={styles.city_selection}>
             <div className={styles.city_selection__wrapper}>
-                <NavLink style={{color: 'white'}} to={'/'}>X</NavLink>
+                <NavLink className={styles.city_selection__close_btn} style={{color: 'white'}} to={'/'}>X</NavLink>
                 <div className={styles.city_selection__content}>
                     <div className={styles.city_selection__search}>
                         <div className={styles.city_selection__search_icon}>
                             <img src={magnifier} alt={'magnifier'}/>
                         </div>
-                        <input name={'searchCity'}
+                        <input type={'text'}
+                               name={'searchCity'}
                                value={searchText}
                                onChange={(e) => {
                                    setSearchText(e.target.value)

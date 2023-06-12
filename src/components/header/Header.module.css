@@ -45,3 +45,37 @@ nav {
 .city_choice__a:hover {
     color: #1E3D59;
 }
+
+@media screen and (max-width: 480px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+        height: auto;
+        margin-bottom: 30px;
+        align-items: flex-start;
+    }
+
+    .city_choice {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .logo {
+        width: 100%;
+        margin-bottom: 30px;
+        justify-content: center;
+    }
+
+    @media screen and (max-width: 355px) {
+        .logo {
+            font-size: 28px;
+        }
+
+        .logo_img {
+            width: 90px;
+            margin-right: 16px;
+        }
+    }
+}

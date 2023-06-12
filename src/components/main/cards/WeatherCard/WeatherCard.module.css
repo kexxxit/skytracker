@@ -64,3 +64,45 @@
     width: 60px;
 }
 
+@media screen and (max-width: 425px) {
+    .weather_data {
+
+    }
+
+    .weather_data__temp {
+        font-size: 48px;
+        margin-right: 5px;
+    }
+
+
+    .some_data {
+        font-size: 14px;
+    }
+
+    .some_data__item {
+        display: flex;
+        align-items: center;
+        opacity: 70%;
+    }
+
+    .some_data__wind_icon {
+        width: 30px;
+        margin-right: 10px;
+    }
+
+    .some_data__humidity_icon {
+        width: 16px;
+    }
+
+    .some_data__pressure_icon {
+        width: 22px;
+    }
+
+    .weather_data__info {
+        font-family: 'Merriweather', serif;
+        opacity: 70%;
+        margin-left: 10px;
+    }
+
+}
+

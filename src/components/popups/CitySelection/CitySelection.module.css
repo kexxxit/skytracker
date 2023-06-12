@@ -40,6 +40,9 @@
 
 .city_selection__search_input {
     width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 0;
 }
 
 .city_selection__list {
@@ -58,4 +61,16 @@
 
 .city_selection__list_elem:hover {
     color: #FCBF20;
+}
+
+@media screen and (max-width: 500px) {
+    .city_selection__wrapper {
+        max-width: 260px;
+        align-items: center;
+    }
+
+    .city_selection__close_btn {
+        width: 100%;
+        text-align: right;
+    }
 }

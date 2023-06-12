@@ -60,4 +60,17 @@ input {
     outline: none;
     font-size: 16px;
     font-family: 'Montserrat Alternates', sans-serif;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+input[type=text] {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+@media screen and (max-width: 768px) {
+    .weather_card {
+        margin-bottom: 20px;
+    }
 }
