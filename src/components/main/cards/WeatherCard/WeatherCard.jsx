@@ -25,7 +25,6 @@ function WeatherCard(props) {
 
     useEffect(() => {
         setInterval(setDate, SECOND)
-        console.log('ТАЙМЕР УСТАНОВЛЕН')
     }, [])
 
     return <div className={"card weather_card"}>

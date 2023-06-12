@@ -12,7 +12,7 @@ const Main = props => (
             <SomeCard/>
         </div>
         <WeatherDetail isInitialized={props.isInitialized} weatherDetail={props.weatherDetail}
-                       timezone={props.timezone}/>
+                       timezone={props.timezone} city={props.city}/>
     </main>
 );
 

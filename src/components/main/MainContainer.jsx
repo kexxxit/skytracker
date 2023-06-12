@@ -1,16 +1,17 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useRef} from "react";
 import Main from "./Main";
 import {connect} from "react-redux";
 import {getWeatherData} from "../../state/reducers/mainReducer";
 
 const MINUTE = 60000
-let interval
 
 const MainContainer = (props) => {
+    let intervalRef = useRef()
+
     useEffect(() => {
-        clearInterval(interval)
+        clearInterval(intervalRef.current)
         props.getWeatherData(props.city)
-        interval = setInterval(() => {
+        intervalRef.current = setInterval(() => {
             props.getWeatherData(props.city)
         }, MINUTE)
     }, [props.city])

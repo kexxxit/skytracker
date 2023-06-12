@@ -9,20 +9,33 @@ const WeatherDetail = props => {
     const rightArrowRef = useRef()
     const leftArrowRef = useRef()
     const sliderRef = useRef()
+    const cardRef = useRef()
 
     const rightArrowClickHandler = () => {
-        setOffset(offset + 1053.33)
+        if ((offset + cardRef.current.offsetWidth + 41 >= sliderRef.current.scrollWidth - cardRef.current.offsetWidth)) {
+            setOffset(sliderRef.current.scrollWidth - cardRef.current.offsetWidth)
+        } else {
+            setOffset(prev => prev + cardRef.current.offsetWidth + 20)
+        }
     }
 
     const leftArrowClickHandler = () => {
-        setOffset(offset - 1053.33)
+        if (offset - cardRef.current.offsetWidth - 20 < 0) {
+            setOffset(0)
+        } else {
+            setOffset(prev => prev - cardRef.current.offsetWidth - 20)
+        }
     }
+
+    useEffect(() => {
+        setOffset(0)
+    }, [props.city])
 
     useEffect(() => {
         if (props.isInitialized) {
             sliderRef.current.style.right = `${offset}px`
 
-            if (offset === 3159.99) {
+            if (offset >= sliderRef.current.scrollWidth - cardRef.current.offsetWidth) {
                 rightArrowRef.current.style.display = 'none'
             } else {
                 rightArrowRef.current.style.display = 'block'
@@ -59,7 +72,7 @@ const WeatherDetail = props => {
                          alt={'left_arrow'}
                          ref={leftArrowRef}/>
                 </div>
-                <div className={styles.weather_detail__card_items}>
+                <div ref={cardRef} className={styles.weather_detail__card_items}>
                     <div className={styles.weather_detail__card_items_slider}
                          ref={sliderRef}>{items}</div>
                 </div>
