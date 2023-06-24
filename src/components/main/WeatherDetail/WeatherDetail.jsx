@@ -12,19 +12,11 @@ const WeatherDetail = props => {
     const cardRef = useRef()
 
     const rightArrowClickHandler = () => {
-        if ((offset + cardRef.current.offsetWidth + 41 >= sliderRef.current.scrollWidth - cardRef.current.offsetWidth)) {
-            setOffset(sliderRef.current.scrollWidth - cardRef.current.offsetWidth)
-        } else {
-            setOffset(prev => prev + cardRef.current.offsetWidth + 20)
-        }
+        setOffset(prevState => prevState + 1053.33)
     }
 
     const leftArrowClickHandler = () => {
-        if (offset - cardRef.current.offsetWidth - 20 < 0) {
-            setOffset(0)
-        } else {
-            setOffset(prev => prev - cardRef.current.offsetWidth - 20)
-        }
+        setOffset(prevState => prevState - 1053.33)
     }
 
     useEffect(() => {
@@ -35,7 +27,7 @@ const WeatherDetail = props => {
         if (props.isInitialized) {
             sliderRef.current.style.right = `${offset}px`
 
-            if (offset >= sliderRef.current.scrollWidth - cardRef.current.offsetWidth) {
+            if (offset >= 3159.99) {
                 rightArrowRef.current.style.display = 'none'
             } else {
                 rightArrowRef.current.style.display = 'block'

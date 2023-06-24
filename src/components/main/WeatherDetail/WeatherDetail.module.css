@@ -37,11 +37,13 @@
 }
 
 .weather_detail__card_icon_left {
+    display: block;
     width: 22px;
     cursor: pointer;
 }
 
 .weather_detail__card_icon_right {
+    display: block;
     width: 22px;
     transform: rotate(180deg);
     cursor: pointer;
@@ -58,5 +60,27 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+@media screen and (max-width: 1280px) {
+    .weather_detail__card_items {
+        overflow-x: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .weather_detail__card_items::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+
+    }
+
+    .weather_detail__card_icon_left {
+        visibility: hidden;
+    }
+
+    .weather_detail__card_icon_right {
+        visibility: hidden;
+    }
 }
 

@@ -11,7 +11,7 @@ function App() {
     return (
         <HashRouter>
             <Provider store={store}>
-                <div className="app-wrapper">
+                <div id={"appWrapper"} className="app-wrapper">
                     <HeaderContainer/>
                     <MainContainer/>
                     <Footer/>

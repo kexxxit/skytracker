@@ -31,6 +31,9 @@
 .app-wrapper {
     max-width: 1280px;
     margin: 0 auto;
+    /*overflow: hidden;*/
+    position: relative;
+    /*height: 100vh;*/
 }
 
 @keyframes App-logo-spin {

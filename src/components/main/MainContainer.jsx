@@ -2,11 +2,25 @@ import React, {useEffect, useRef} from "react";
 import Main from "./Main";
 import {connect} from "react-redux";
 import {getWeatherData} from "../../state/reducers/mainReducer";
+import {useLocation} from "react-router-dom";
 
 const MINUTE = 60000
 
 const MainContainer = (props) => {
     let intervalRef = useRef()
+
+    const {pathname} = useLocation()
+
+    useEffect(() => {
+        const wrapperStyles = document.getElementById('appWrapper').style
+        if (pathname === "/city") {
+            wrapperStyles.overflow = "hidden"
+            wrapperStyles.height = "100vh"
+        } else {
+            wrapperStyles.overflow = "visible"
+            wrapperStyles.height = "auto"
+        }
+    }, [pathname])
 
     useEffect(() => {
         clearInterval(intervalRef.current)

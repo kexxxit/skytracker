@@ -69,6 +69,11 @@
         align-items: center;
     }
 
+    .city_selection__content {
+        height: 400px;
+        overflow: hidden;
+    }
+
     .city_selection__close_btn {
         width: 100%;
         text-align: right;
