@@ -3,6 +3,7 @@ import styles from "./WeatherDetail.module.css"
 import WeatherDetailItem from "./Item/WeatherDetailItem"
 import arrowIcon from "../../../assets/imgs/icons/arrow.svg"
 import Preloader from "../../ui/Preloader";
+import {useSelector} from "react-redux";
 
 const WeatherDetail = props => {
     const [offset, setOffset] = useState(0)
@@ -10,6 +11,9 @@ const WeatherDetail = props => {
     const leftArrowRef = useRef()
     const sliderRef = useRef()
     const cardRef = useRef()
+    const weatherDetail = useSelector(state => state.mainPage.weatherDetail)
+    const isInitialized = useSelector(state => state.mainPage.isInitialized)
+    const city = useSelector(state => state.cityPage.city)
 
     const rightArrowClickHandler = () => {
         setOffset(prevState => prevState + 1053.33)
@@ -21,10 +25,10 @@ const WeatherDetail = props => {
 
     useEffect(() => {
         setOffset(0)
-    }, [props.city])
+    }, [city])
 
     useEffect(() => {
-        if (props.isInitialized) {
+        if (isInitialized) {
             sliderRef.current.style.right = `${offset}px`
 
             if (offset >= 3159.99) {
@@ -39,9 +43,9 @@ const WeatherDetail = props => {
                 leftArrowRef.current.style.display = 'block'
             }
         }
-    }, [props.isInitialized, offset])
+    }, [isInitialized, offset])
 
-    const items = props.weatherDetail.map((elem, index) => <WeatherDetailItem
+    const items = weatherDetail.map((elem, index) => <WeatherDetailItem
         key={index}
         isFirst={index === 0}
         temp={elem.main.temp}
@@ -56,7 +60,7 @@ const WeatherDetail = props => {
             <span>Прогноз на 5 дней</span>
         </div>
         <div className={styles.weather_detail__card}>
-            {props.isInitialized ? <>
+            {isInitialized ? <>
                 <div className={styles.weather_detail__card_icon_wrapper}>
                     <img onClick={leftArrowClickHandler}
                          className={styles.weather_detail__card_icon_left}

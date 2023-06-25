@@ -65,14 +65,18 @@
 @media screen and (max-width: 1280px) {
     .weather_detail__card_items {
         overflow-x: scroll;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
+        scrollbar-color: #FCBF20 transparent;
+        scrollbar-width: thin;
     }
 
     .weather_detail__card_items::-webkit-scrollbar {
-        width: 0;
-        height: 0;
+        background-color: transparent;
+        height: 5px;
+    }
 
+    .weather_detail__card_items::-webkit-scrollbar-thumb {
+        background-color: #FCBF20;
+        border-radius: 5px;
     }
 
     .weather_detail__card_icon_left {
@@ -81,6 +85,21 @@
 
     .weather_detail__card_icon_right {
         visibility: hidden;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+
+    .weather_detail__card_items {
+        overflow-x: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .weather_detail__card_items::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+
     }
 }
 

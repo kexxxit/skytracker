@@ -2,15 +2,34 @@ import styles from "./CitySelection.module.css"
 import magnifier from "../../../assets/imgs/icons/loupe.svg"
 import {NavLink} from "react-router-dom";
 import {useEffect, useState} from "react";
+import {setCity, setCityList, setInitialCities} from "../../../state/reducers/cityReducer";
+import {searchCities} from "../../../utils/search-cities/searchCities";
+import {useDispatch, useSelector} from "react-redux";
+import {setIsInitialized} from "../../../state/reducers/mainReducer";
 
-export const CitySelection = (props) => {
+export const CitySelection = () => {
     const [searchText, setSearchText] = useState('')
+    const dispatch = useDispatch()
+    const cityList = useSelector(state => state.cityPage.cityList)
+
+    const handleCitySelection = (name) => {
+        dispatch(setCity(name))
+        dispatch(setIsInitialized(false))
+    };
+
+    const cities = cityList.map((elem) => <NavLink
+        to='/'
+        onClick={() => {
+            handleCitySelection(elem.name)
+        }}
+        className={styles.city_selection__list_elem}
+        key={elem.city_id}>{elem.name}</NavLink>)
 
     useEffect(() => {
         if (searchText !== '') {
-            props.setCityList(searchText)
+            dispatch(setCityList(searchCities(searchText)))
         } else {
-            props.setInitialCities()
+            dispatch(setInitialCities())
         }
     }, [searchText])
 
@@ -33,7 +52,7 @@ export const CitySelection = (props) => {
                                placeholder={'Найти город'}/>
                     </div>
                     <div className={styles.city_selection__list}>
-                        {props.cityList}
+                        {cities}
                     </div>
                 </div>
             </div>

@@ -7,6 +7,7 @@
     justify-content: space-between;
     border-right: white 2px solid;
     font-weight: bold;
+    user-select: none;
 }
 
 .weather_item__img {

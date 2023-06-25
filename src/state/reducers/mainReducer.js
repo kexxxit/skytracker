@@ -1,8 +1,6 @@
 import {weatherAPI} from "../../api/api";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {convert} from "../../utils/converter/converter";
-
-const SET_WEATHER_DATA = "SET_WEATHER_DATA"
-const SET_INITIALIZED = "SET_INITIALIZED"
 
 let initialState = {
     weatherData: {},
@@ -11,39 +9,36 @@ let initialState = {
     isInitialized: false
 }
 
-const mainReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case SET_WEATHER_DATA:
-            return {
-                ...state,
-                weatherData: action.data.list[0],
-                weatherDetail: action.data.list,
-                timezone: action.data.city.timezone / 3600
-            }
-        case SET_INITIALIZED:
-            return {
-                ...state,
-                isInitialized: true
-            }
-        default:
-            return state
+export const fetchWeatherData = createAsyncThunk(
+    'products/fetchWeatherData',
+    async (city) => {
+        const response = await weatherAPI.getWeatherData(city)
+        return convert(response.data)
     }
+)
 
-}
-
-const setWeatherDataAction = (data) => ({type: SET_WEATHER_DATA, data})
-const setInitializedAction = () => ({type: SET_INITIALIZED})
-
-export const getWeatherData = (city) => {
-    return async (dispatch) => {
-        let response = await weatherAPI.getWeatherData(city)
-        if (response.data.cod === "200") {
-            dispatch(setWeatherDataAction(convert(response.data)))
-            dispatch(setInitializedAction())
-        }
+export const mainSlice = createSlice({
+    name: 'main',
+    initialState,
+    reducers: {
+        setIsInitialized: (state, action) => {
+            console.log(action.payload)
+            state.isInitialized = action.payload
+        },
+    },
+    extraReducers: {
+        [fetchWeatherData.fulfilled]: (state, action) => {
+            state.weatherData = action.payload.list[0]
+            state.weatherDetail = action.payload.list
+            state.timezone = action.payload.city.timezone / 3600
+            state.isInitialized = true
+        },
+        [fetchWeatherData.rejected]: (state, action) => {
+            console.log('Ошибка получения погоды')
+        },
     }
-}
+})
 
+export const {setIsInitialized} = mainSlice.actions
 
-export default mainReducer
-
+export default mainSlice.reducer

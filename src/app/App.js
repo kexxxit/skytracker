@@ -1,26 +1,22 @@
 import '../assets/styles/App.css';
-import {BrowserRouter, HashRouter, Route, Routes} from "react-router-dom";
-import HeaderContainer from "../components/header/HeaderContainer";
-import MainContainer from "../components/main/MainContainer";
-import Footer from "../components/footer/Footer";
-import {Provider} from "react-redux";
-import store from "../state/store";
-import CitySelectionContainer from "../components/popups/CitySelection/CitySelectionContainer";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Footer from "../components/Footer/Footer";
+import {CitySelection} from "../components/popups/CitySelection/CitySelection";
+import Main from "../components/Main/Main";
+import Header from "../components/Header/Header";
 
 function App() {
     return (
-        <HashRouter>
-            <Provider store={store}>
-                <div id={"appWrapper"} className="app-wrapper">
-                    <HeaderContainer/>
-                    <MainContainer/>
-                    <Footer/>
-                </div>
-                <Routes>
-                    <Route path={'/city'} element={<CitySelectionContainer/>}/>
-                </Routes>
-            </Provider>
-        </HashRouter>
+        <BrowserRouter>
+            <div id={"appWrapper"} className="app-wrapper">
+                <Header/>
+                <Main/>
+                <Footer/>
+            </div>
+            <Routes>
+                <Route path={'/city'} element={<CitySelection/>}/>
+            </Routes>
+        </BrowserRouter>
     )
 }
 
