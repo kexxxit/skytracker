@@ -5,7 +5,8 @@ import arrowIcon from "../../../assets/imgs/icons/arrow.svg"
 import Preloader from "../../ui/Preloader";
 import {useSelector} from "react-redux";
 
-const WeatherDetail = props => {
+const WeatherDetail = () => {
+    const [activeItem, setActiveItem] = useState(0)
     const [offset, setOffset] = useState(0)
     const rightArrowRef = useRef()
     const leftArrowRef = useRef()
@@ -22,6 +23,7 @@ const WeatherDetail = props => {
     const leftArrowClickHandler = () => {
         setOffset(prevState => prevState - 1053.33)
     }
+
 
     useEffect(() => {
         setOffset(0)
@@ -47,6 +49,9 @@ const WeatherDetail = props => {
 
     const items = weatherDetail.map((elem, index) => <WeatherDetailItem
         key={index}
+        index={index}
+        isActive={index === activeItem}
+        setIsActive={setActiveItem}
         isFirst={index === 0}
         temp={elem.main.temp}
         weather={elem.weather[0].description}

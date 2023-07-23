@@ -10,7 +10,7 @@ import {useSelector} from "react-redux";
 
 const SECOND = 1000
 
-function WeatherCard() {
+const WeatherCard = () => {
     let dateInterval = useRef()
     const [dateStr, setDateStr] = useState("")
     const timezone = useSelector(state => state.mainPage.timezone)
@@ -34,7 +34,8 @@ function WeatherCard() {
         {isInitialized ? <>
             <div className={styles.location_data}>
                 <div className={styles.city_data}>Погода в {city}</div>
-                <div className={styles.location_date}>Сейчас {dateStr}</div>
+                <div
+                    className={styles.location_date}>{weatherData.isCurrentWeather ? `Сейчас ${dateStr}` : `Прогноз на ${weatherData.weatherForDate}`}</div>
             </div>
             <div className={styles.weather_data}>
                 <div className={styles.weather_data__temp}>{weatherData.main.temp}°</div>
@@ -61,6 +62,6 @@ function WeatherCard() {
             </div>
         </> : <Preloader/>}
     </div>
-}
+};
 
 export default WeatherCard

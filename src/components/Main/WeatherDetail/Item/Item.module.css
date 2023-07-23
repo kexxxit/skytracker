@@ -8,6 +8,11 @@
     border-right: white 2px solid;
     font-weight: bold;
     user-select: none;
+    cursor: pointer;
+}
+
+.weather_item_active {
+    color: #FCBF20;
 }
 
 .weather_item__img {

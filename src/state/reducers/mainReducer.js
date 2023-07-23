@@ -13,6 +13,7 @@ export const fetchWeatherData = createAsyncThunk(
     'products/fetchWeatherData',
     async (city) => {
         const response = await weatherAPI.getWeatherData(city)
+        console.log(response.data)
         return convert(response.data)
     }
 )
@@ -22,13 +23,15 @@ export const mainSlice = createSlice({
     initialState,
     reducers: {
         setIsInitialized: (state, action) => {
-            console.log(action.payload)
             state.isInitialized = action.payload
         },
+        setWeatherData: (state, action) => {
+            state.weatherData = {...action.payload}
+        }
     },
     extraReducers: {
         [fetchWeatherData.fulfilled]: (state, action) => {
-            state.weatherData = action.payload.list[0]
+            state.weatherData = {...action.payload.list[0], isCurrentWeather: true, weatherForDate: ""}
             state.weatherDetail = action.payload.list
             state.timezone = action.payload.city.timezone / 3600
             state.isInitialized = true
@@ -39,6 +42,6 @@ export const mainSlice = createSlice({
     }
 })
 
-export const {setIsInitialized} = mainSlice.actions
+export const {setIsInitialized, setWeatherData} = mainSlice.actions
 
 export default mainSlice.reducer

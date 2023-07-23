@@ -9,7 +9,7 @@ import {fetchWeatherData} from "../../state/reducers/mainReducer";
 
 const MINUTE = 60000
 
-const Main = props => {
+const Main = () => {
     const dispatch = useDispatch()
     let intervalRef = useRef()
     const city = useSelector(state => state.cityPage.city)

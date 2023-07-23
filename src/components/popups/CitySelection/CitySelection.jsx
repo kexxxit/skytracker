@@ -11,10 +11,13 @@ export const CitySelection = () => {
     const [searchText, setSearchText] = useState('')
     const dispatch = useDispatch()
     const cityList = useSelector(state => state.cityPage.cityList)
+    const currentCity = useSelector(state => state.cityPage.city)
 
     const handleCitySelection = (name) => {
-        dispatch(setCity(name))
-        dispatch(setIsInitialized(false))
+        if (currentCity !== name) {
+            dispatch(setCity(name))
+            dispatch(setIsInitialized(false))
+        }
     };
 
     const cities = cityList.map((elem) => <NavLink
