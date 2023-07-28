@@ -6,17 +6,17 @@ import pressureIcon from "../../../../assets/imgs/icons/pressure.svg"
 import windIcon from "../../../../assets/imgs/icons/wind.svg"
 import {defineWeatherIcon} from "../../../../utils/define-weather-icon/defineWeatherIcon";
 import Preloader from "../../../ui/Preloader";
-import {useSelector} from "react-redux";
+import {useTypedSelector} from "../../../../hooks/useTypesSelector";
 
 const SECOND = 1000
 
-const WeatherCard = () => {
-    let dateInterval = useRef()
+const WeatherCard: React.FC = () => {
+    let dateInterval = useRef() as React.MutableRefObject<NodeJS.Timer>
     const [dateStr, setDateStr] = useState("")
-    const timezone = useSelector(state => state.mainPage.timezone)
-    const isInitialized = useSelector(state => state.mainPage.isInitialized)
-    const weatherData = useSelector(state => state.mainPage.weatherData)
-    const city = useSelector(state => state.cityPage.city)
+    const timezone = useTypedSelector(state => state.mainPage.timezone)
+    const isInitialized = useTypedSelector(state => state.mainPage.isInitialized)
+    const weatherData = useTypedSelector(state => state.mainPage.weatherData)
+    const city = useTypedSelector(state => state.cityPage.city)
 
     const setDate = () => {
         const date = calcDateByOffset(timezone)

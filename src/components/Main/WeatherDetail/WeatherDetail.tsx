@@ -3,18 +3,18 @@ import styles from "./WeatherDetail.module.css"
 import WeatherDetailItem from "./Item/WeatherDetailItem"
 import arrowIcon from "../../../assets/imgs/icons/arrow.svg"
 import Preloader from "../../ui/Preloader";
-import {useSelector} from "react-redux";
+import {useTypedSelector} from "../../../hooks/useTypesSelector";
 
-const WeatherDetail = () => {
+const WeatherDetail: React.FC = () => {
     const [activeItem, setActiveItem] = useState(0)
     const [offset, setOffset] = useState(0)
-    const rightArrowRef = useRef()
-    const leftArrowRef = useRef()
-    const sliderRef = useRef()
-    const cardRef = useRef()
-    const weatherDetail = useSelector(state => state.mainPage.weatherDetail)
-    const isInitialized = useSelector(state => state.mainPage.isInitialized)
-    const city = useSelector(state => state.cityPage.city)
+    const rightArrowRef = useRef() as React.MutableRefObject<HTMLImageElement>
+    const leftArrowRef = useRef() as React.MutableRefObject<HTMLImageElement>
+    const sliderRef = useRef() as React.MutableRefObject<HTMLDivElement>
+    const cardRef = useRef() as React.MutableRefObject<HTMLDivElement>
+    const weatherDetail = useTypedSelector(state => state.mainPage.weatherDetail)
+    const isInitialized = useTypedSelector(state => state.mainPage.isInitialized)
+    const city = useTypedSelector(state => state.cityPage.city)
 
     const rightArrowClickHandler = () => {
         setOffset(prevState => prevState + 1053.33)
@@ -47,7 +47,7 @@ const WeatherDetail = () => {
         }
     }, [isInitialized, offset])
 
-    const items = weatherDetail.map((elem, index) => <WeatherDetailItem
+    const items = weatherDetail.map((elem: any, index: number) => <WeatherDetailItem
         key={index}
         index={index}
         isActive={index === activeItem}

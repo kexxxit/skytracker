@@ -4,23 +4,24 @@ import {NavLink} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {setCity, setCityList, setInitialCities} from "../../../state/reducers/cityReducer";
 import {searchCities} from "../../../utils/search-cities/searchCities";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {setIsInitialized} from "../../../state/reducers/mainReducer";
+import {useTypedSelector} from "../../../hooks/useTypesSelector";
 
 export const CitySelection = () => {
     const [searchText, setSearchText] = useState('')
     const dispatch = useDispatch()
-    const cityList = useSelector(state => state.cityPage.cityList)
-    const currentCity = useSelector(state => state.cityPage.city)
+    const cityList = useTypedSelector(state => state.cityPage.cityList)
+    const currentCity = useTypedSelector(state => state.cityPage.city)
 
-    const handleCitySelection = (name) => {
+    const handleCitySelection = (name: string) => {
         if (currentCity !== name) {
             dispatch(setCity(name))
             dispatch(setIsInitialized(false))
         }
     };
 
-    const cities = cityList.map((elem) => <NavLink
+    const cities = cityList.map((elem: any) => <NavLink
         to='/'
         onClick={() => {
             handleCitySelection(elem.name)

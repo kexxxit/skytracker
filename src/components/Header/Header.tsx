@@ -2,10 +2,10 @@ import React from "react";
 import styles from "./Header.module.css"
 import logo from "../../assets/imgs/logo.svg"
 import {NavLink} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useTypedSelector} from "../../hooks/useTypesSelector";
 
-const Header = () => {
-    const city = useSelector(state => state.cityPage.city)
+const Header: React.FC = () => {
+    const city = useTypedSelector(state => state.cityPage.city)
 
     return <header>
         <div className={styles.logo}>

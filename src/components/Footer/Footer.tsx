@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./Footer.module.css"
 
-let Footer = () => {
+let Footer: React.FC = () => {
     return <footer>
         <div className={styles.footer_nav}>
-            <a className={styles.footer_nav__button} href={"#"}>Служба поддержки</a>
-            <a className={styles.footer_nav__button} href={"#"}>О нас</a>
-            <a className={styles.footer_nav__button} href={"#"}>Оставить отзыв</a>
+            <a href={"#"}>Служба поддержки</a>
+            <a href={"#"}>О нас</a>
+            <a href={"#"}>Оставить отзыв</a>
         </div>
         <div className={styles.footer_text}>Погода на сегодня предоставлена исключительно
             для личного некоммерческого использования.

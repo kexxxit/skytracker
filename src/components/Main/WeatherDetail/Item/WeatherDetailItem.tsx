@@ -2,11 +2,24 @@ import React from "react";
 import styles from "./Item.module.css"
 import {defineWeatherIcon} from "../../../../utils/define-weather-icon/defineWeatherIcon";
 import {setWeatherData} from "../../../../state/reducers/mainReducer";
-import {useDispatch, useSelector} from "react-redux";
+import {useTypedSelector} from "../../../../hooks/useTypesSelector";
+import {useAppDispatch} from "../../../../hooks/useAppDispatch";
 
-const WeatherDetailItem = props => {
-    const dispatch = useDispatch()
-    const weatherDetail = useSelector(state => state.mainPage.weatherDetail)
+type ProductsItemProps = {
+    index: number,
+    isActive: boolean,
+    setIsActive: (value: (((prevState: number) => number) | number)) => void,
+    isFirst: boolean,
+    temp: number,
+    weather: string,
+    main: string,
+    time: string,
+    date: string
+}
+
+const WeatherDetailItem: React.FC<ProductsItemProps> = props => {
+    const dispatch = useAppDispatch()
+    const weatherDetail = useTypedSelector(state => state.mainPage.weatherDetail)
 
     const setWeatherCardData = () => {
         dispatch(setWeatherData(props.index !== 0 ? {
