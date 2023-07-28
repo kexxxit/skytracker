@@ -1,8 +1,7 @@
 {
   "files": {
     "main.css": "/skytracker/static/css/main.8064009f.css",
-    "main.js": "/skytracker/static/js/main.738df4fc.js",
-    "static/js/787.a4cea2a2.chunk.js": "/skytracker/static/js/787.a4cea2a2.chunk.js",
+    "main.js": "/skytracker/static/js/main.9a33189b.js",
     "static/media/logo.svg": "/skytracker/static/media/logo.eb095530e2e63c6acf356b5225191863.svg",
     "static/media/drizzle.svg": "/skytracker/static/media/drizzle.e35c8be997c90a646aa3f976860f539c.svg",
     "static/media/snow.svg": "/skytracker/static/media/snow.c16ce10150ed79bc3ba0054cfcd23247.svg",
@@ -16,11 +15,10 @@
     "static/media/loupe.svg": "/skytracker/static/media/loupe.54fd46af41218e7753accc4cece5ff63.svg",
     "static/media/arrow.svg": "/skytracker/static/media/arrow.152128a082b645e8541fee38f0ca1807.svg",
     "main.8064009f.css.map": "/skytracker/static/css/main.8064009f.css.map",
-    "main.738df4fc.js.map": "/skytracker/static/js/main.738df4fc.js.map",
-    "787.a4cea2a2.chunk.js.map": "/skytracker/static/js/787.a4cea2a2.chunk.js.map"
+    "main.9a33189b.js.map": "/skytracker/static/js/main.9a33189b.js.map"
   },
   "entrypoints": [
     "static/css/main.8064009f.css",
-    "static/js/main.738df4fc.js"
+    "static/js/main.9a33189b.js"
   ]
 }
